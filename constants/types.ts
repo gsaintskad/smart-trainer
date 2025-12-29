@@ -1,15 +1,13 @@
 export interface Waypoint {
-  id: string; // unique ID for the point (optional, but good for lists)
-  session_id: string; // links to the specific walk
-  latitude: number; 
+  id: string; // Fixed TS2353/TS2339
+  latitude: number;
   longitude: number;
-  altitude: number | null; // might be null if GPS signal is weak
-  timestamp: number; // "created_at" - usually a Unix timestamp
+  timestamp: number;
+  photo_uri?: string | null; // Fixed TS2339 (optional for waypoints without photos)
 }
 
 export interface TrainingSession {
   id: string;
-  created_at: string; // ISO string is often easier for UI dates
+  created_at: string; // Fixed TS2339/TS2353
   waypoints: Waypoint[];
-  // We will add photos here later!
 }
